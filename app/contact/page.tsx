@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ContentPage } from "../../components/ContentPage";
 
 export default function ContactPage() {
