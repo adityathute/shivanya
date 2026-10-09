@@ -1,11 +1,23 @@
 import type { Metadata } from "next";
+import "shivanya-ui/styles";
+import "shivanya-shell/styles";
 import "./globals.css";
+import "./site-pages.css";
 
 export const metadata: Metadata = {
-  title: "Shivanya SDK — UI Components, Auth, Core & Shell",
-  description: "Explore Shivanya SDK packages, published UI components, authentication, core utilities, AI, and application layouts.",
+  title: {
+    default: "ShivanyaMS — One connected workspace",
+    template: "%s | ShivanyaMS",
+  },
+  description: "ShivanyaMS brings focused applications and a reusable developer foundation together.",
   metadataBase: new URL("https://shivanya.com"),
-  openGraph: { title: "Shivanya SDK", description: "Reusable tools for modern web apps.", url: "https://shivanya.com", siteName: "Shivanya", type: "website" }
+  openGraph: {
+    title: "ShivanyaMS",
+    description: "One connected foundation for your digital workspace.",
+    url: "https://shivanya.com",
+    siteName: "ShivanyaMS",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
