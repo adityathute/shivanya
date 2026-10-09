@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { Card } from "shivanya-ui";
 import { SiteLayout } from "./SiteLayout";
 
@@ -14,7 +15,7 @@ export function ContentPage({
   title: string;
   description: string;
   cards?: ContentCard[];
-  children?: React.ReactNode;
+  children?: ReactNode;
 }) {
   return (
     <SiteLayout>
