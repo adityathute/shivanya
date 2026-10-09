@@ -1,0 +1,6 @@
+import Link from "next/link";
+import { AppLayout } from "../../../components/AppLayout";
+
+export default function ProfilePage() {
+  return <AppLayout pathname="/app/profile"><main className="shv-dashboard-page"><div className="shv-dashboard-heading"><div><span className="shv-eyebrow">Account</span><h1>Profile & settings</h1><p>Manage account details and security through Shivanya Auth.</p></div><Link className="shv-nav-cta" href="/auth/login">Sign in →</Link></div><section className="shv-content-grid"><article className="shv-dashboard-panel"><h2>Profile</h2><p>Use the Auth SDK profile APIs and account UI to load and update verified user information.</p><Link className="shv-text-link" href="/auth/login">Open account sign-in →</Link></article><article className="shv-dashboard-panel"><h2>Security</h2><p>Sessions, password updates and account security require a connected authentication API.</p><Link className="shv-text-link" href="/guides/authentication">Configure authentication →</Link></article><article className="shv-dashboard-panel"><h2>Preferences</h2><p>Connect preferences to a persisted settings endpoint before presenting saved state.</p><Link className="shv-text-link" href="/contact">Ask about setup →</Link></article></section></main></AppLayout>;
+}
