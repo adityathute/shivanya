@@ -8,7 +8,7 @@
 .shv-nav { display:flex; align-items:center; gap:22px; flex-wrap:wrap; }
 .shv-nav a,.shv-footer-links a { color:var(--shv-muted); text-decoration:none; font-size:13px; font-weight:600; }
 .shv-nav a:hover,.shv-footer-links a:hover,.shv-text-link:hover { color:#2563eb; }
-.shv-nav .shv-nav-cta { color:white; background:#2563eb; padding:10px 15px; border-radius:10px; }
+.shv-nav .shv-nav-cta,.shv-nav-cta { display:inline-flex; align-items:center; color:white; background:#2563eb; padding:10px 15px; border-radius:10px; font-size:12px; font-weight:700; text-decoration:none; }\n.shv-shell-account { display:flex; align-items:center; gap:9px; color:var(--shv-ink); font-size:12px; text-decoration:none; }\n.shv-shell-account span:first-child { display:grid; place-items:center; width:30px; height:30px; border-radius:50%; background:#dbeafe; color:#1d4ed8; font-weight:800; }\n.shv-shell-back { display:block; padding:10px 12px; color:var(--shv-muted); font-size:12px; text-decoration:none; }
 .shv-footer-inner { display:flex; align-items:flex-start; justify-content:space-between; gap:24px; width:min(1180px,100%); margin:auto; padding:28px 24px; flex-wrap:wrap; }
 .shv-footer-inner strong { font-size:15px; }
 .shv-footer-inner p,.shv-footer-inner small { color:var(--shv-muted); font-size:12px; }
