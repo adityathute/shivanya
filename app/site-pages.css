@@ -1,3 +1,4 @@
+:root { --shv-ink: var(--ink, #111b39); --shv-muted: var(--muted, #7b89a2); --shv-line: var(--line, #e3eaf4); --shv-bg: #f8faff; --shv-surface: #ffffff; }
 .shv-site-shell { color: var(--shv-ink); background: var(--shv-bg); }
 .shv-site-shell .shivanya-shell-header { border-bottom: 1px solid var(--shv-line); background: color-mix(in srgb, var(--shv-bg) 92%, transparent); }
 .shv-site-shell .shivanya-website-shell-main { min-height: 70vh; }
