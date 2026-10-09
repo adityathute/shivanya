@@ -41,7 +41,7 @@ export function AuthRouteClient({ requestedView }: { requestedView: string }) {
           resetToken={tokens.resetToken || undefined}
           verifyToken={tokens.verifyToken || undefined}
           features={["login", "register", "forgot", "reset", "verify"]}
-          onAuthenticated={() => { window.location.href = "/app/dashboard"; }}
+          onAuthenticated={() => { const next = new URLSearchParams(window.location.search).get("next"); window.location.href = next && next.startsWith("/") && !next.startsWith("//") ? next : "/app/dashboard"; }}
         />
       </AuthProvider>
       <Link className="shv-auth-back" href="/">← Back to website</Link>
