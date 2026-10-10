@@ -11,7 +11,7 @@ export default function SiteFooter() {
             <span />
             <span />
           </span>
-          <span className="brand-name">shivanya<span className="brand-period">.</span></span>
+          <span className="brand-name">shivanya</span>
         </Link>
         <p>Tools for building thoughtful digital experiences.</p>
         <span className="footer-copyright">© {new Date().getFullYear()} Shivanya</span>
