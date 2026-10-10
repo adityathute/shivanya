@@ -20,8 +20,8 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - name: Install dependencies and refresh lockfile
-        run: npm install
+      - name: Install dependencies from lockfile
+        run: npm ci
       - name: TypeScript check
         run: npm run typecheck
       - name: Production build
