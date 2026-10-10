@@ -1,7 +1,5 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import SiteHeader from "../../components/site/SiteHeader";
-import SiteFooter from "../../components/site/SiteFooter";
 import "./playground.css";
 
 const navigation = [
@@ -15,9 +13,7 @@ const navigation = [
 
 export default function PlaygroundLayout({ children }: { children: ReactNode }) {
   return (
-    <>
-      <SiteHeader />
-      <div className="sdk-playground">
+    <div className="sdk-playground">
         <aside className="sdk-playground-sidebar" aria-label="Playground navigation">
           <div className="sdk-sidebar-heading">
             <span className="sdk-sidebar-mark">S</span>
@@ -38,8 +34,6 @@ export default function PlaygroundLayout({ children }: { children: ReactNode }) 
           </div>
         </aside>
         <main className="sdk-playground-main">{children}</main>
-      </div>
-      <SiteFooter />
-    </>
+    </div>
   );
 }
