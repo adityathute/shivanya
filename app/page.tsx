@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import {
   Activity,
@@ -410,7 +410,29 @@ export default function Home() {
     [showAll, setShowAll] = useState(false),
     [mobile, setMobile] = useState(false),
     [dark, setDark] = useState(false),
+    [userMenuOpen, setUserMenuOpen] = useState(false),
     [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    setDark(window.localStorage.getItem("shivanya-theme") === "dark");
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = dark ? "dark" : "light";
+    window.localStorage.setItem("shivanya-theme", dark ? "dark" : "light");
+  }, [dark]);
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        document.querySelector<HTMLInputElement>(".global-search input")?.focus();
+      }
+      if (event.key === "Escape") setUserMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
   const filtered = useMemo(
     () =>
@@ -452,7 +474,7 @@ export default function Home() {
         >
           {mobile ? <X /> : <Menu />}
         </button>
-        <a className="brand" href="#">
+        <a className="brand" href="/" aria-label="Shivanya home">
           <Mark />
           <b>
             Shivanya<span>.com</span>
@@ -488,35 +510,45 @@ export default function Home() {
         >
           {dark ? <Sun size={17} /> : <Moon size={17} />}
         </button>
-        <button className="user">
-          <span>A</span> Aditya Thute <ChevronDown size={13} />
-        </button>
+        <div className="user-menu-wrap">
+          <button className="user" type="button" aria-haspopup="menu" aria-expanded={userMenuOpen} onClick={() => setUserMenuOpen((open) => !open)}>
+            <span>A</span> Aditya Thute <ChevronDown size={13} />
+          </button>
+          {userMenuOpen && (
+            <div className="user-menu" role="menu" aria-label="Account menu">
+              <div className="user-menu-heading"><strong>Aditya Thute</strong><small>Shivanya developer platform</small></div>
+              <a href="/app/profile" role="menuitem" onClick={() => setUserMenuOpen(false)}>Profile</a>
+              <a href="/app/dashboard" role="menuitem" onClick={() => setUserMenuOpen(false)}>Workspace</a>
+              <a href="/auth/login" role="menuitem" onClick={() => setUserMenuOpen(false)}>Sign in / account</a>
+            </div>
+          )}
+        </div>
       </header>
 
       <aside className={mobile ? "sidebar open" : "sidebar"}>
         <div className="side-scroll">
-          <a className="side-link active" href="#">
+          <a className="side-link active" href="/">
             <LayoutDashboard size={15} />
             Home
           </a>
           <h5>GET STARTED</h5>
-          <a className="side-link" href="#docs">
+          <a className="side-link" href="/docs">
             <BookOpen />
             Introduction
           </a>
-          <a className="side-link" href="#install">
+          <a className="side-link" href="/docs/installation">
             <Download />
             Installation
           </a>
-          <a className="side-link" href="#first-app">
+          <a className="side-link" href="/docs/create-your-first-app">
             <Code2 />
             Create Your First App
           </a>
-          <a className="side-link" href="#structure">
+          <a className="side-link" href="/docs/project-structure">
             <Layers3 />
             Project Structure
           </a>
-          <a className="side-link" href="#guides">
+          <a className="side-link" href="/guides">
             <Zap />
             Using Shivanya SDK
           </a>
