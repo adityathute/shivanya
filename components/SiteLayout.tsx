@@ -34,7 +34,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       }
       footer={
         <div className="shv-footer-inner">
-          <div><strong>ShivanyaMS</strong><p>One connected foundation for your digital workspace.</p></div>
+          <div><strong>Shivanya</strong><p>One connected foundation for your digital workspace.</p></div>
           <div className="shv-footer-links">
             <Link href="/docs">Documentation</Link>
             <Link href="/packages">SDK packages</Link>
@@ -42,7 +42,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>
           </div>
-          <small>© {new Date().getFullYear()} ShivanyaMS</small>
+          <small>© {new Date().getFullYear()} Shivanya</small>
         </div>
       }
     >

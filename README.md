@@ -1,6 +1,6 @@
-# ShivanyaMS
+# Shivanya
 
-The ShivanyaMS frontend is the main platform website and application entry point. It uses the shared Shivanya SDK packages instead of duplicating the common UI and shell.
+The Shivanya frontend is the main platform website and application entry point. It uses the shared Shivanya SDK packages instead of duplicating the common UI and shell.
 
 ## Routes
 

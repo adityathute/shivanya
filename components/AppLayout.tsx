@@ -30,7 +30,7 @@ function ProtectedWorkspace({ children, pathname }: { children: ReactNode; pathn
   return (
     <DashboardShell
       className="shv-app-shell"
-      branding={{ name: "ShivanyaMS", subtitle: "Workspace", href: "/app/dashboard" }}
+      branding={{ name: "Shivanya", subtitle: "Workspace", href: "/app/dashboard" }}
       navigation={navigation}
       pathname={pathname}
       linkComponent={Link}

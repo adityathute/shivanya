@@ -4,20 +4,27 @@ import "./site-pages.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "ShivanyaMS — One connected workspace",
-    template: "%s | ShivanyaMS",
+    default: "Shivanya — One connected workspace",
+    template: "%s | Shivanya",
   },
-  description: "ShivanyaMS brings focused applications and a reusable developer foundation together.",
-  metadataBase: new URL("https://shivanya.com"),
+  description:
+    "Shivanya brings focused applications and a reusable developer foundation together.",
+  metadataBase: new URL("https://shivanya.tech"),
   openGraph: {
-    title: "ShivanyaMS",
+    title: "Shivanya",
     description: "One connected foundation for your digital workspace.",
-    url: "https://shivanya.com",
-    siteName: "ShivanyaMS",
+    url: "https://shivanya.tech",
+    siteName: "Shivanya",
     type: "website",
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}</body></html>;
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
 }

@@ -10,7 +10,7 @@ const activities = [
 export default function DashboardPage() {
   return <AppLayout pathname="/app/dashboard">
     <main className="shv-dashboard-page">
-      <div className="shv-dashboard-heading"><div><span className="shv-eyebrow">Workspace overview</span><h1>Welcome to ShivanyaMS</h1><p>Your shared workspace for applications, account settings and product tools.</p></div><Link className="shv-nav-cta" href="/apps">Explore apps →</Link></div>
+      <div className="shv-dashboard-heading"><div><span className="shv-eyebrow">Workspace overview</span><h1>Welcome to Shivanya</h1><p>Your shared workspace for applications, account settings and product tools.</p></div><Link className="shv-nav-cta" href="/apps">Explore apps →</Link></div>
       <section className="shv-dashboard-stats">
         <div className="shv-dashboard-stat"><span>Available app areas</span><strong>9</strong><small>Product catalog</small></div>
         <div className="shv-dashboard-stat"><span>Shared packages</span><strong>5</strong><small>UI · Core · Shell · Auth · AI</small></div>

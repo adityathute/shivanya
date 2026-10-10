@@ -1,7 +1,7 @@
 import { ContentPage } from "../../components/ContentPage";
 
 export default function FeaturesPage() {
-  return <ContentPage eyebrow="Platform features" title="A shared foundation for every experience." description="ShivanyaMS combines focused applications with reusable services and a consistent interface." cards={[
+  return <ContentPage eyebrow="Platform features" title="A shared foundation for every experience." description="Shivanya combines focused applications with reusable services and a consistent interface." cards={[
     {title:"Reusable UI",label:"Design system",description:"Build screens with the shared Shivanya UI component library.",href:"/components"},
     {title:"Consistent application shell",label:"Layouts",description:"Use the same responsive navigation and page structure across apps.",href:"/guides/shell"},
     {title:"Authentication",label:"Account security",description:"Integrate the existing Auth SDK and supported authentication flows.",href:"/guides/authentication"},

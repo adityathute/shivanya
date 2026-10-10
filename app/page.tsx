@@ -477,7 +477,7 @@ export default function Home() {
         <a className="brand" href="/" aria-label="Shivanya home">
           <Mark />
           <b>
-            Shivanya<span>.com</span>
+            Shivanya
           </b>
           <small>SDK</small>
         </a>
@@ -1010,7 +1010,7 @@ export default function Home() {
         <footer className="footer" id="footer">
           <div>
             <Mark />
-            <b>Shivanya.com</b>
+            <b>Shivanya</b>
             <small>Developer tools for building better apps.</small>
           </div>
           <nav>

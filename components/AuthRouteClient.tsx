@@ -34,7 +34,7 @@ export function AuthRouteClient({ requestedView }: { requestedView: string }) {
 
   return (
     <div className="shv-auth-page">
-      <Link className="shv-auth-brand" href="/">S <span>ShivanyaMS</span></Link>
+      <Link className="shv-auth-brand" href="/">S <span>Shivanya</span></Link>
       <AuthProvider config={{ baseUrl, mode: "cookie" }}>
         <AuthPage
           initialView={view}
