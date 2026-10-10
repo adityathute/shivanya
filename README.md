@@ -30,14 +30,14 @@ The frontend consumes the published packages:
 - `shivanya-auth`
 - `shivanya-ai`
 
-The SDK repository is currently a pnpm workspace of separate packages. The root `shivanya-sdk` package is not yet a unified published entry point, and the CI install currently fails because `shivanya-auth@^1.0.0` returns npm registry 404. The Auth package must be published to npm or linked through a supported SDK workspace before a clean install/build can pass. Do not assume `npm install shivanya-sdk` installs the full stack.
+The SDK repository is a workspace of separate packages. The root `shivanya-sdk` repository is not a unified installation entry point; install the individual published packages used by this website. Verify package versions and registry availability before changing dependencies.
 
 ## Setup
 
-Use a supported Node.js release, then refresh the lockfile and install the dependencies:
+Use a supported Node.js release and install the exact dependencies recorded in the lockfile:
 
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
@@ -58,7 +58,7 @@ Do not put API secrets or private tokens in `NEXT_PUBLIC_*` variables. Only publ
 
 ## Integration status
 
-The public website, package documentation, shell-based dashboard layout, protected workspace routes, and Auth/AI SDK routes are wired to the shared package APIs. Dependency installation is currently blocked by the unpublished/unavailable `shivanya-auth` npm package. Product data, activity, pricing, contact submission and account persistence still need their actual backend endpoints before those workflows can be considered production-live. The legal pages are starter content and require legal review.
+The public website, package documentation, shell-based dashboard layout, protected workspace routes, and Auth/AI SDK routes are wired to the shared package APIs. Confirm that all published package versions are available in the npm registry and that a clean `npm ci` succeeds before release. Product data, activity, pricing, contact submission and account persistence still need their actual backend endpoints before those workflows can be considered production-live. The legal pages are starter content and require legal review.
 
 ## Git workflow
 
