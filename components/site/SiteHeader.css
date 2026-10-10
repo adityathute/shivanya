@@ -3,7 +3,7 @@
   top: 0;
   z-index: 100;
   height: 56px;
-  border-bottom: 1px solid var(--shivanya-color-border, #e9eaf1);
+  border-bottom: 1px solid var(--site-header-border, #e9eaf1);
   background: var(--site-header-bg, rgba(255, 255, 255, 0.94));
   color: var(--site-header-text, #171725);
   backdrop-filter: blur(18px);
@@ -13,11 +13,24 @@
 .site-header-inner {
   display: flex;
   align-items: center;
-  gap: 28px;
-  width: min(var(--content-width), calc(100% - 48px));
+  gap: 24px;
+  width: min(var(--content-width, 1200px), calc(100% - 48px));
   height: 100%;
   margin: 0 auto;
-}   
+  min-width: 0;
+}
+
+/* Mobile menu trigger */
+.site-header .mobile-menu-trigger {
+  display: none;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-header .mobile-menu-trigger button {
+  flex-shrink: 0;
+}
 
 /* Brand */
 .site-header .brand {
@@ -44,12 +57,12 @@
   white-space: nowrap;
 }
 
-/* Navigation */
+/* Desktop navigation */
 .site-header .site-nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 26px;
   margin-left: auto;
 }
 
@@ -72,7 +85,8 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 10px;
+  margin-left: 0;
 }
 
 /* GitHub button */
@@ -81,9 +95,9 @@
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  gap: 9px;
+  gap: 8px;
   min-height: 36px;
-  padding: 0 13px;
+  padding: 0 12px;
   border: 1px solid var(--site-header-border, #dedff0);
   border-radius: 9px;
   background: var(--site-header-button-bg, #fff);
@@ -112,6 +126,11 @@
   object-fit: contain;
 }
 
+:root[data-theme="dark"] .site-header .github-logo,
+[data-theme="dark"] .site-header .github-logo {
+  filter: brightness(0) invert(1);
+}
+
 .site-header .github-arrow {
   color: var(--primary);
   font-size: 15px;
@@ -125,7 +144,7 @@
   align-items: center;
   justify-content: center;
   min-height: 36px;
-  padding: 0 17px;
+  padding: 0 16px;
   border: 1px solid #5145f5;
   border-radius: 9px;
   background: #5145f5;
@@ -146,13 +165,14 @@
   transform: translateY(-1px);
 }
 
-/* Npm download counter */
+/* NPM downloads */
 .site-header .npm-downloads {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
   gap: 7px;
+  min-width: 0;
   color: var(--site-header-text, #242438);
   text-decoration: none;
   white-space: nowrap;
@@ -184,162 +204,9 @@
   height: 15px;
 }
 
-/* Tablet */
-@media (max-width: 1100px) {
-  .site-header-inner {
-    width: calc(100% - 36px);
-    gap: 18px;
-  }
-
-  .site-header .site-nav {
-    gap: 18px;
-  }
-
-  .site-header .header-cta-group {
-    gap: 9px;
-  }
-
-  .site-header .header-cta {
-    gap: 7px;
-    padding: 0 10px;
-  }
-
-  .site-header .header-signin {
-    padding: 0 13px;
-  }
-}
-
-/* Smaller tablets and mobile */
-@media (max-width: 760px) {
-  .site-header {
-    height: 66px;
-  }
-
-  .site-header-inner {
-    width: calc(100% - 28px);
-    gap: 12px;
-  }
-
-  .site-header .brand {
-    gap: 7px;
-  }
-
-  .site-header .brand-name {
-    font-size: 18px;
-  }
-
-  .site-header .site-nav {
-    gap: 13px;
-  }
-
-  .site-header .site-nav a {
-    font-size: 11px;
-  }
-
-  .site-header .header-cta-group {
-    gap: 9px;
-  }
-
-  .site-header .header-cta,
-  .site-header .header-signin {
-    min-height: 36px;
-  }
-
-  .site-header .header-cta {
-    padding: 0 9px;
-  }
-
-  .site-header .github-logo {
-    width: 17px;
-    height: 17px;
-  }
-
-  .site-header .header-signin {
-    padding: 0 11px;
-  }
-
-  .site-header .npm-downloads {
-    gap: 5px;
-  }
-
-  .site-header .npm-downloads img {
-    width: 19px;
-    height: 19px;
-  }
-}
-
-/* Compact mobile header */
-@media (max-width: 560px) {
-  .site-header-inner {
-    gap: 10px;
-  }
-
-  .site-header .brand-name {
-    font-size: 16px;
-  }
-
-  .site-header .site-nav {
-    gap: 10px;
-  }
-
-  .site-header .site-nav a {
-    font-size: 10px;
-  }
-
-  .site-header .site-nav a:first-child {
-    display: none;
-  }
-
-  .site-header .header-cta-group {
-    gap: 0;
-  }
-
-  .site-header .header-cta,
-  .site-header .header-signin {
-    display: none;
-  }
-}
-
-@media (max-width: 380px) {
-  .site-header-inner {
-    width: calc(100% - 20px);
-    gap: 7px;
-  }
-
-  .site-header .brand {
-    gap: 5px;
-  }
-
-  .site-header .brand img {
-    width: 21px;
-    height: 21px;
-  }
-
-  .site-header .brand-name {
-    font-size: 14px;
-  }
-
-  .site-header .site-nav {
-    gap: 8px;
-  }
-
-  .site-header .site-nav a {
-    font-size: 9px;
-  }
-}
-
 /* Dark theme */
 :root[data-theme="dark"] .site-header,
-[data-theme="dark"] .site-header {
-  --site-header-bg: rgba(15, 23, 42, 0.94);
-  --site-header-text: #f1f5f9;
-  --site-header-muted: #a3adc2;
-  --site-header-border: #30394d;
-  --site-header-button-bg: #182238;
-  --site-header-hover-bg: #232f49;
-}
-
-/* Alternative theme class */
+[data-theme="dark"] .site-header,
 .dark .site-header {
   --site-header-bg: rgba(15, 23, 42, 0.94);
   --site-header-text: #f1f5f9;
@@ -347,4 +214,156 @@
   --site-header-border: #30394d;
   --site-header-button-bg: #182238;
   --site-header-hover-bg: #232f49;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+  .site-header-inner {
+    width: calc(100% - 36px);
+    gap: 16px;
+  }
+
+  .site-header .site-nav {
+    gap: 16px;
+  }
+
+  .site-header .header-cta-group {
+    gap: 8px;
+  }
+
+  .site-header .header-cta {
+    padding: 0 10px;
+  }
+
+  .site-header .header-signin {
+    padding: 0 12px;
+  }
+}
+
+/* Mobile and smaller tablets */
+@media (max-width: 760px) {
+  .site-header {
+    height: 66px;
+  }
+
+  .site-header-inner {
+    gap: 10px;
+    width: calc(100% - 28px);
+  }
+
+  /* Hide every desktop navigation link */
+  .site-header .site-nav {
+    display: none !important;
+  }
+
+  /* Show the shell mobile drawer trigger */
+  .site-header .mobile-menu-trigger {
+    display: flex !important;
+  }
+
+  .site-header .brand {
+    gap: 7px;
+  }
+
+  .site-header .brand img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .site-header .brand-name {
+    font-size: 16px;
+    letter-spacing: -0.5px;
+  }
+
+  .site-header .header-cta-group {
+    gap: 6px;
+    margin-left: auto;
+  }
+
+  .site-header .header-cta {
+    min-height: 36px;
+    padding: 0 9px;
+  }
+
+  .site-header .header-cta > span:not(.github-arrow),
+  .site-header .header-cta .github-arrow {
+    display: none;
+  }
+
+  .site-header .github-logo {
+    width: 18px;
+    height: 18px;
+  }
+
+  .site-header .header-signin {
+    min-height: 36px;
+    padding: 0 10px;
+  }
+
+  .site-header .npm-downloads {
+    gap: 5px;
+    min-height: 36px;
+    padding: 0 8px;
+    border: 1px solid var(--site-header-border, #30394d);
+    border-radius: 9px;
+    background: var(--site-header-button-bg, #fff);
+  }
+
+  .site-header .npm-downloads img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .site-header .npm-downloads-count {
+    font-size: 10px;
+  }
+
+  .site-header .npm-downloads-icon svg {
+    width: 13px;
+    height: 13px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 420px) {
+  .site-header-inner {
+    gap: 7px;
+    width: calc(100% - 20px);
+  }
+
+  .site-header .brand {
+    gap: 5px;
+  }
+
+  .site-header .brand img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .site-header .brand-name {
+    font-size: 14px;
+    letter-spacing: -0.4px;
+  }
+
+  .site-header .header-cta-group {
+    gap: 4px;
+  }
+
+  .site-header .header-cta {
+    padding: 0 7px;
+  }
+
+  .site-header .npm-downloads {
+    gap: 4px;
+    padding: 0 6px;
+  }
+
+  .site-header .npm-downloads img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .site-header .header-signin {
+    padding: 0 8px;
+  }
 }

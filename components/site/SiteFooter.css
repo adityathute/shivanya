@@ -1,6 +1,6 @@
 .site-footer {
   width: 100%;
-  border-top: 1px solid var(--border, #e5e7ef);
+  border-top: 1px solid var(--shivanya-color-border-dark, #e5e7ef);
   background: #ffffff;
   color: #171725;
   transition:
@@ -58,7 +58,7 @@
 /* Dark theme */
 html[data-theme="dark"] .site-footer {
   background: #0b1120;
-  border-top-color: #30394d;
+  --shivanya-color-border: #172236;
   color: #f1f5f9;
 }
 

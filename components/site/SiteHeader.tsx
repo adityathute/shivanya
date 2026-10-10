@@ -11,6 +11,9 @@ import {
   type UserDropdownView,
   type AccountView,
 } from "shivanya-auth";
+import { ShellProvider, ShellMobileNav, useShell } from "shivanya-shell";
+import { IconButton } from "shivanya-ui";
+import { MenuIcon } from "shivanya-ui/icons";
 import NpmDownloads from "./NpmDownloads";
 import "./SiteHeader.css";
 
@@ -20,8 +23,16 @@ const navigation = [
   { label: "Playground", href: "/playground" },
 ];
 
+const branding = {
+  name: "Shivanya",
+  // subtitle: "SDK",
+  src: "/logo.png",
+  href: "/",
+};
+
 function SiteHeaderContent() {
   const { loading } = useAuth();
+  const { toggleMobile, closeMobile } = useShell();
 
   const [authOpen, setAuthOpen] = useState(false);
   const [accountView, setAccountView] = useState<AccountView>("overview");
@@ -40,7 +51,24 @@ function SiteHeaderContent() {
     <>
       <header className="site-header">
         <div className="site-header-inner">
-          <Link className="brand" href="/" aria-label="Shivanya home">
+          <div className="mobile-menu-trigger">
+            <IconButton
+              type="button"
+              variant="ghost"
+              size="md"
+              aria-label="Open menu"
+              onClick={toggleMobile}
+            >
+              <MenuIcon />
+            </IconButton>
+          </div>
+
+          <Link
+            className="brand"
+            href="/"
+            aria-label="Shivanya home"
+            onClick={closeMobile}
+          >
             <Image src="/logo.png" alt="" width={24} height={24} priority />
             <span className="brand-name">Shivanya</span>
           </Link>
@@ -61,6 +89,7 @@ function SiteHeaderContent() {
               href="https://github.com/adityathute/shivanya-sdk"
               target="_blank"
               rel="noreferrer"
+              aria-label="View on GitHub"
             >
               <Image
                 src="/github-logo.png"
@@ -86,6 +115,15 @@ function SiteHeaderContent() {
         </div>
       </header>
 
+      <ShellMobileNav
+        navigation={navigation}
+        pathname="/"
+        branding={branding}
+        open={undefined}
+        onClose={closeMobile}
+        size={280}
+      />
+
       <AuthModal
         open={authOpen}
         onClose={() => setAuthOpen(false)}
@@ -105,7 +143,9 @@ export default function SiteHeader() {
         mode: "cookie",
       }}
     >
-      <SiteHeaderContent />
+      <ShellProvider defaultMobileOpen={false}>
+        <SiteHeaderContent />
+      </ShellProvider>
     </AuthProvider>
   );
 }

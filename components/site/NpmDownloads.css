@@ -21,15 +21,3 @@
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
-
-.npm-downloads-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #777b90;
-}
-
-.npm-downloads-icon svg {
-  width: 15px;
-  height: 15px;
-}

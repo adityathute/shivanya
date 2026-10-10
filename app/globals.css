@@ -947,3 +947,50 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: clip;
+}
+
+#root,
+#__next,
+main {
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .section-wrap,
+  .hero,
+  .hero-copy,
+  .hero-visual,
+  .trust-strip,
+  .trust-strip-inner,
+  .packages-section,
+  .playground-section,
+  .playground-inner,
+  .quick-start,
+  .site-footer,
+  .footer-inner {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .playground-inner,
+  .quick-start {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .package-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
