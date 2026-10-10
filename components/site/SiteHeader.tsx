@@ -1,4 +1,18 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
+import {
+  AuthModal,
+  AuthProvider,
+  UserDropdown,
+  useAuth,
+  type UserDropdownView,
+  type AccountView,
+} from "shivanya-auth";
+import NpmDownloads from "./NpmDownloads";
+import "./SiteHeader.css";
 
 const navigation = [
   { label: "SDK", href: "#packages" },
@@ -6,37 +20,92 @@ const navigation = [
   { label: "Playground", href: "/playground" },
 ];
 
+function SiteHeaderContent() {
+  const { loading } = useAuth();
+
+  const [authOpen, setAuthOpen] = useState(false);
+  const [accountView, setAccountView] = useState<AccountView>("overview");
+
+  const handleNavigate = (view: UserDropdownView) => {
+    setAccountView(view);
+    setAuthOpen(true);
+  };
+
+  const handleLogin = () => {
+    setAccountView("overview");
+    setAuthOpen(true);
+  };
+
+  return (
+    <>
+      <header className="site-header">
+        <div className="site-header-inner">
+          <Link className="brand" href="/" aria-label="Shivanya home">
+            <Image src="/logo.png" alt="" width={24} height={24} priority />
+            <span className="brand-name">Shivanya</span>
+          </Link>
+
+          <nav className="site-nav" aria-label="Main navigation">
+            {navigation.map((item) => (
+              <Link key={item.label} href={item.href}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="header-cta-group">
+            <NpmDownloads />
+
+            <a
+              className="header-cta"
+              href="https://github.com/adityathute/shivanya-sdk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Image
+                src="/github-logo.png"
+                alt=""
+                width={19}
+                height={19}
+                className="github-logo"
+              />
+              <span>View on GitHub</span>
+              <span className="github-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </a>
+
+            {!loading && (
+              <UserDropdown
+                onNavigate={handleNavigate}
+                onLogin={handleLogin}
+                onRegister={handleLogin}
+              />
+            )}
+          </div>
+        </div>
+      </header>
+
+      <AuthModal
+        open={authOpen}
+        onClose={() => setAuthOpen(false)}
+        initialView="login"
+        accountView={accountView}
+        onAuthenticated={() => setAuthOpen(false)}
+      />
+    </>
+  );
+}
+
 export default function SiteHeader() {
   return (
-    <header className="site-header">
-      <div className="site-header-inner">
-        <Link className="brand" href="/" aria-label="Shivanya home">
-          <span className="brand-mark" aria-hidden="true">
-            <span />
-            <span />
-            <span />
-            <span />
-          </span>
-          <span className="brand-name">shivanya<span className="brand-period">.</span></span>
-        </Link>
-
-        <nav className="site-nav" aria-label="Main navigation">
-          {navigation.map((item) => (
-            <a key={item.label} href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-
-        <a
-          className="header-cta"
-          href="https://github.com/adityathute/shivanya-sdk"
-          target="_blank"
-          rel="noreferrer"
-        >
-          View on GitHub <span aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </header>
+    <AuthProvider
+      config={{
+        baseUrl: "http://localhost:8000",
+        mode: "cookie",
+      }}
+    >
+      <SiteHeaderContent />
+    </AuthProvider>
   );
 }
