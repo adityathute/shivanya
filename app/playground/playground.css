@@ -1,8 +1,8 @@
 @import "shivanya-ui/styles";
 @import "shivanya-shell/styles";
 
-.sdk-playground{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:calc(100vh - 168px);background:#f8f8fc;border-bottom:1px solid #e8e9f0}
-.sdk-playground-sidebar{position:sticky;top:76px;display:flex;height:calc(100vh - 76px);max-height:900px;flex-direction:column;padding:22px 14px;border-right:1px solid #e7e7f0;background:#fff}
+.sdk-playground{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh;background:#f8f8fc}
+.sdk-playground-sidebar{position:sticky;top:0;display:flex;height:100vh;max-height:100vh;flex-direction:column;padding:22px 14px;border-right:1px solid #e7e7f0;background:#fff}
 .sdk-sidebar-heading{display:flex;align-items:center;gap:10px;padding:4px 7px 22px;border-bottom:1px solid #eeeef5}
 .sdk-sidebar-mark{display:grid;width:36px;height:36px;place-items:center;border-radius:10px;background:#6257e8;color:#fff;font-weight:800}
 .sdk-sidebar-heading strong,.sdk-sidebar-heading small,.sdk-sidebar-note strong,.sdk-sidebar-note small{display:block}
