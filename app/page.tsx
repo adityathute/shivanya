@@ -536,15 +536,15 @@ export default function Home() {
             <BookOpen />
             Introduction
           </a>
-          <a className="side-link" href="/docs/installation">
+          <a className="side-link" href="/guides/getting-started">
             <Download />
             Installation
           </a>
-          <a className="side-link" href="/docs/create-your-first-app">
+          <a className="side-link" href="/guides/getting-started">
             <Code2 />
             Create Your First App
           </a>
-          <a className="side-link" href="/docs/project-structure">
+          <a className="side-link" href="/guides/shell">
             <Layers3 />
             Project Structure
           </a>
