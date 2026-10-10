@@ -3,7 +3,7 @@ import Link from "next/link";
 const navigation = [
   { label: "SDK", href: "#packages" },
   { label: "Documentation", href: "#quick-start" },
-  { label: "Playground", href: "#playground" },
+  { label: "Playground", href: "/playground" },
 ];
 
 export default function SiteHeader() {
