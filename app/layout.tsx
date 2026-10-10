@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import "shivanya-ui/styles";
-import "shivanya-shell/styles";
 import "./globals.css";
 import "./site-pages.css";
 

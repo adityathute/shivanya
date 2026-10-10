@@ -13,11 +13,11 @@
     "next": "^16.3.6",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
-    "shivanya-ai": "^0.1.1",
+    "shivanya-ai": "^0.1.2",
     "shivanya-auth": "^1.0.0",
-    "shivanya-core": "^1.0.0",
-    "shivanya-shell": "^1.0.5",
-    "shivanya-ui": "^1.0.6"
+    "shivanya-core": "^1.1.0",
+    "shivanya-shell": "^1.1.0",
+    "shivanya-ui": "^1.1.0"
   },
   "devDependencies": {
     "@types/node": "^26.6.3",
