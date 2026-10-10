@@ -83,7 +83,7 @@ export default function Home() {
             <div className="playground-copy">
               <div className="eyebrow eyebrow-light"><span className="eyebrow-dot" /> LEARN BY EXPLORING</div>
               <h2>See it in action.<br /><span>Make it yours.</span></h2>
-              <p>Explore examples, understand how the packages work, and build from real usage patterns. The public playground will live here, separate from the SDK's local testing tools.</p>
+              <p>Explore examples, understand how the packages work, and build from real usage patterns. Explore the public playground to browse SDK packages and examples, separate from the SDK's local testing tools.</p>
               <a className="button button-light" href="#quick-start">Explore the SDK <span aria-hidden="true">→</span></a>
             </div>
             <div className="playground-preview" aria-label="Illustration of the developer playground">
