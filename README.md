@@ -5,7 +5,8 @@ The ShivanyaMS frontend is the main platform website and application entry point
 ## Routes
 
 - `/` — SDK and component dashboard
-- `/apps` — application catalog\n- `/features` — platform features
+- `/apps` — application catalog
+- `/features` — platform features
 - `/docs` — documentation hub
 - `/components` — shared UI component families
 - `/packages` — SDK package reference
