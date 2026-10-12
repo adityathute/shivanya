@@ -1,0 +1,84 @@
+.site-mobile-header {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .site-mobile-header {
+    display: flex;
+    height: 66px;
+    min-height: 66px;
+    box-sizing: border-box;
+    background: var(--shivanya-color-background, #fff);
+    color: var(--site-header-text, #171725);
+    border-bottom: 1px solid var(--site-header-border, #e9eaf1);
+  }
+
+  .site-mobile-header .shivanya-shell-header-inner {
+    display: flex;
+    width: calc(100% - 28px);
+    min-height: 66px;
+    align-items: center;
+    gap: 0;
+    margin-inline: auto;
+    padding: 0;
+  }
+
+  .site-mobile-header .shivanya-shell-header-start {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .site-mobile-header .shivanya-shell-mobile-menu {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-mobile-header .shivanya-shell-mobile-menu button {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+  }
+
+  .site-mobile-header .shivanya-shell-brand {
+    min-width: 0;
+    gap: 7px;
+    color: inherit;
+  }
+
+  .site-mobile-header .shivanya-shell-brand-image {
+    display: block;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .site-mobile-header .shivanya-shell-brand-text strong {
+    color: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-mobile-header .shivanya-shell-header-inner {
+    width: calc(100% - 20px);
+  }
+
+  .site-mobile-header .shivanya-shell-header-start {
+    gap: 10px;
+  }
+}
+
+html[data-theme="dark"] .site-mobile-header,
+[data-theme="dark"] .site-mobile-header,
+.dark .site-mobile-header {
+  --site-header-text: #f1f5f9;
+  --site-header-border: #30394d;
+  background: var(--shivanya-color-background, #0b1120);
+}
