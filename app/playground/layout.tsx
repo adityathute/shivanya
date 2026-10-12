@@ -65,6 +65,7 @@ export default function PlaygroundLayout({
       <ShellHeader
         branding={branding}
         position="sticky"
+        height={66}
         className="sdk-playground-mobile-header"
       />
 
