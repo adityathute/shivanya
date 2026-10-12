@@ -26,7 +26,13 @@ const packages = [
     name: "shivanya-shell",
     tag: "Application UI",
     description: "Build a consistent application structure and experience.",
-  }
+  },
+  {
+    number: "05",
+    name: "shivanya-ai",
+    tag: "AI tools",
+    description: "AI client capabilities for applications built on Shivanya.",
+  },
 ];
 
 function CodePreview() {
