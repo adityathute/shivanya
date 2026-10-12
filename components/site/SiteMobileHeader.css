@@ -1,9 +1,9 @@
-.site-mobile-header {
+.shivanya-shell-header.site-mobile-header {
   display: none;
 }
 
 @media (max-width: 760px) {
-  .site-mobile-header {
+  .shivanya-shell-header.site-mobile-header {
     display: flex;
     height: 66px;
     min-height: 66px;
@@ -75,9 +75,9 @@
   }
 }
 
-html[data-theme="dark"] .site-mobile-header,
-[data-theme="dark"] .site-mobile-header,
-.dark .site-mobile-header {
+html[data-theme="dark"] .shivanya-shell-header.site-mobile-header,
+[data-theme="dark"] .shivanya-shell-header.site-mobile-header,
+.dark .shivanya-shell-header.site-mobile-header {
   --site-header-text: #f1f5f9;
   --site-header-border: #30394d;
   background: var(--shivanya-color-background, #0b1120);
