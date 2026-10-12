@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   AuthModal,
-  AuthProvider,
   UserDropdown,
   useAuth,
   type UserDropdownView,
@@ -233,15 +232,8 @@ function SiteHeaderContent() {
 
 export default function SiteHeader() {
   return (
-    <AuthProvider
-      config={{
-        baseUrl: "http://localhost:8000",
-        mode: "cookie",
-      }}
-    >
-      <ShellProvider defaultMobileOpen={false}>
-        <SiteHeaderContent />
-      </ShellProvider>
-    </AuthProvider>
+    <ShellProvider defaultMobileOpen={false}>
+      <SiteHeaderContent />
+    </ShellProvider>
   );
 }
