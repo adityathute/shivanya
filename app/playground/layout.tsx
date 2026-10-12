@@ -46,6 +46,11 @@ const navigation = [
     href: "/playground/core",
     icon: <CodeIcon />,
   },
+  {
+    label: "AI",
+    href: "/playground/ai",
+    icon: <CodeIcon />,
+  },
 ];
 
 const branding = {
