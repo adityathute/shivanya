@@ -23,6 +23,8 @@ import {
   PlayIcon,
 } from "shivanya-ui/icons";
 import NpmDownloads from "./NpmDownloads";
+import SiteMobileHeader from "./SiteMobileHeader";
+import SiteMobileFooter from "./SiteMobileFooter";
 import { usePathname } from "next/navigation";
 import "./SiteHeader.css";
 
@@ -128,14 +130,9 @@ function SiteHeaderContent() {
     }
   };
 
-  const mobileFooter = (
-    <footer className="site-mobile-copyright site-mobile-footer">
-      <span>© {new Date().getFullYear()} Shivanya</span>
-    </footer>
-  );
-
   return (
     <>
+      <SiteMobileHeader />
       <header className="site-header">
         <div className="site-header-inner">
           <div className="mobile-menu-trigger">
@@ -215,7 +212,7 @@ function SiteHeaderContent() {
         size={280}
         panelClassName="site-mobile-nav"
         sidebarClassName="site-mobile-sidebar"
-        footer={mobileFooter}
+        footer={<SiteMobileFooter />}
       >
         {mobileSidebarActions}
       </ShellMobileNav>
