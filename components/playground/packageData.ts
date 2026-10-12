@@ -1,6 +1,9 @@
 export type PlaygroundPackage = {
   route: string;
   label: string;
+  href: string;
+  category: string;
+  icon: string;
   title: string;
   description: string;
   install: string;
@@ -14,6 +17,9 @@ export const playgroundPackages: Record<string, PlaygroundPackage> = {
   ui: {
     route: "UI",
     label: "shivanya-ui",
+    href: "/playground/ui",
+    category: "UI components",
+    icon: "◈",
     title: "shivanya-ui",
     description: "Reusable React interface components and design-system styles.",
     install: "npm install shivanya-ui",
@@ -30,6 +36,9 @@ export const playgroundPackages: Record<string, PlaygroundPackage> = {
   auth: {
     route: "Auth",
     label: "shivanya-auth",
+    href: "/playground/auth",
+    category: "Authentication",
+    icon: "⌘",
     title: "shivanya-auth",
     description: "Authentication and account UI for Shivanya applications.",
     install: "npm install shivanya-auth",
@@ -46,6 +55,9 @@ export const playgroundPackages: Record<string, PlaygroundPackage> = {
   shell: {
     route: "Shell",
     label: "shivanya-shell",
+    href: "/playground/shell",
+    category: "Application shell",
+    icon: "▣",
     title: "shivanya-shell",
     description: "Reusable layouts, shell components, and application structure.",
     install: "npm install shivanya-shell",
@@ -62,6 +74,9 @@ export const playgroundPackages: Record<string, PlaygroundPackage> = {
   core: {
     route: "Core",
     label: "shivanya-core",
+    href: "/playground/core",
+    category: "Core SDK",
+    icon: "{}",
     title: "shivanya-core",
     description: "Core client functionality for the Shivanya platform.",
     install: "npm install shivanya-core",
@@ -78,6 +93,9 @@ export const playgroundPackages: Record<string, PlaygroundPackage> = {
   ai: {
     route: "AI",
     label: "shivanya-ai",
+    href: "/playground/ai",
+    category: "AI tools",
+    icon: "✳",
     title: "shivanya-ai",
     description: "AI client capabilities for applications built on Shivanya.",
     install: "npm install shivanya-ai",
