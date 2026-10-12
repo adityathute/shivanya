@@ -36,6 +36,13 @@ const packages = [
     href: "/playground/core",
     icon: <CodeIcon />,
   },
+  {
+    title: "shivanya-ai",
+    category: "AI tools",
+    description: "AI client capabilities for applications built on Shivanya.",
+    href: "/playground/ai",
+    icon: <CodeIcon />,
+  },
 ];
 
 export default function PlaygroundOverviewPage() {
@@ -77,7 +84,7 @@ export default function PlaygroundOverviewPage() {
             <h2>Packages</h2>
             <p>Choose a package to explore.</p>
           </div>
-          <span className="sdk-package-count">04 packages</span>
+          <span className="sdk-package-count">05 packages</span>
         </div>
 
         <div className="sdk-package-grid">
