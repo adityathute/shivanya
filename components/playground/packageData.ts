@@ -1,6 +1,5 @@
 export type PlaygroundPackage = {
   route: string;
-  label: string;
   href: string;
   category: string;
   icon: string;
@@ -16,7 +15,6 @@ export type PlaygroundPackage = {
 export const playgroundPackages: Record<string, PlaygroundPackage> = {
   ui: {
     route: "UI",
-    label: "shivanya-ui",
     href: "/playground/ui",
     category: "UI components",
     icon: "◈",
@@ -35,7 +33,6 @@ export const playgroundPackages: Record<string, PlaygroundPackage> = {
   },
   auth: {
     route: "Auth",
-    label: "shivanya-auth",
     href: "/playground/auth",
     category: "Authentication",
     icon: "⌘",
@@ -54,7 +51,6 @@ export const playgroundPackages: Record<string, PlaygroundPackage> = {
   },
   shell: {
     route: "Shell",
-    label: "shivanya-shell",
     href: "/playground/shell",
     category: "Application shell",
     icon: "▣",
@@ -73,7 +69,6 @@ export const playgroundPackages: Record<string, PlaygroundPackage> = {
   },
   core: {
     route: "Core",
-    label: "shivanya-core",
     href: "/playground/core",
     category: "Core SDK",
     icon: "{}",
@@ -81,7 +76,7 @@ export const playgroundPackages: Record<string, PlaygroundPackage> = {
     description: "Core client functionality for the Shivanya platform.",
     install: "npm install shivanya-core",
     installDescription: "Install the core SDK package in your application.",
-    example: 'import { /* core exports */ } from "shivanya-core";',
+    example: 'import * as ShivanyaCore from "shivanya-core";',
     exampleDescription: "Check the package exports for the available core APIs.",
     features: [
       "Core platform client",
@@ -92,7 +87,6 @@ export const playgroundPackages: Record<string, PlaygroundPackage> = {
   },
   ai: {
     route: "AI",
-    label: "shivanya-ai",
     href: "/playground/ai",
     category: "AI tools",
     icon: "✳",
@@ -100,7 +94,7 @@ export const playgroundPackages: Record<string, PlaygroundPackage> = {
     description: "AI client capabilities for applications built on Shivanya.",
     install: "npm install shivanya-ai",
     installDescription: "Install the AI package alongside its required dependencies.",
-    example: 'import { /* exported AI APIs */ } from "shivanya-ai";',
+    example: 'import * as ShivanyaAI from "shivanya-ai";',
     exampleDescription: "Check the package exports and configure the AI provider before use.",
     features: [
       "AI client package",
