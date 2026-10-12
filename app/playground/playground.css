@@ -57,15 +57,6 @@
   background: #30b77b;
 }
 
-.sdk-playground-mobile-header {
-  display: none;
-}
-
-.sdk-playground-main {
-  min-width: 0;
-  padding: 36px;
-}
-
 .sdk-breadcrumb {
   display: flex;
   flex-wrap: wrap;
