@@ -15,9 +15,18 @@ import {
   LayoutIcon,
   CodeIcon,
 } from "shivanya-ui";
+import { playgroundPackages } from "../../components/playground/packageData";
 import SiteMobileHeader from "../../components/site/SiteMobileHeader";
 import SiteMobileFooter from "../../components/site/SiteMobileFooter";
 import "./playground.css";
+
+const packageIcons = {
+  ui: <GridIcon />,
+  auth: <ShieldCheckIcon />,
+  shell: <LayoutIcon />,
+  core: <CodeIcon />,
+  ai: <CodeIcon />,
+};
 
 const navigation = [
   {
@@ -26,31 +35,11 @@ const navigation = [
     icon: <HomeIcon />,
     exact: true,
   },
-  {
-    label: "UI",
-    href: "/playground/ui",
-    icon: <GridIcon />,
-  },
-  {
-    label: "Auth",
-    href: "/playground/auth",
-    icon: <ShieldCheckIcon />,
-  },
-  {
-    label: "Shell",
-    href: "/playground/shell",
-    icon: <LayoutIcon />,
-  },
-  {
-    label: "Core",
-    href: "/playground/core",
-    icon: <CodeIcon />,
-  },
-  {
-    label: "AI",
-    href: "/playground/ai",
-    icon: <CodeIcon />,
-  },
+  ...Object.entries(playgroundPackages).map(([key, item]) => ({
+    label: item.route,
+    href: item.href,
+    icon: packageIcons[key as keyof typeof packageIcons],
+  })),
 ];
 
 const branding = {
