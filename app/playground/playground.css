@@ -542,107 +542,28 @@ html[data-theme="dark"] .sdk-playground {
   }
 }
 
-/* Playground mobile header */
-@media (max-width: 640px) {
-  .sdk-playground .sdk-playground-mobile-header {
-    display: flex;
-    height: 57px;
-    min-height: 57px;
-    background: var(--shivanya-color-background) !important;
-    color: var(--sdk-text);
-    border-bottom: 1px solid var(--shivanya-color-border-dark);
-    box-sizing: border-box;
-  }
-}
-
-/* Mobile drawer panel */
+/* Shared mobile navigation drawer */
 .sdk-playground .site-mobile-nav,
 .sdk-playground .site-mobile-sidebar {
-  background: var(--shivanya-color-background) !important;
+  background: var(--shivanya-color-background, #fff) !important;
   color: var(--sdk-text);
 }
 
-/* Drawer header and branding area */
-.sdk-playground .site-mobile-nav header,
-.sdk-playground .site-mobile-sidebar header,
-.sdk-playground .site-mobile-nav [class*="drawer-header"],
-.sdk-playground .site-mobile-sidebar [class*="drawer-header"],
-.sdk-playground .site-mobile-nav [class*="sidebar-brand"],
-.sdk-playground .site-mobile-sidebar [class*="sidebar-brand"] {
-  background: var(--shivanya-color-background) !important;
-  color: var(--sdk-text);
-  border-bottom: 1px solid var(--shivanya-color-border-dark);
+.sdk-playground .site-mobile-nav .shivanya-shell-drawer-header {
+  min-height: 66px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--sdk-border);
+  background: var(--shivanya-color-background, #fff) !important;
 }
 
-/* Ensure drawer content uses the same background */
-.sdk-playground .site-mobile-nav > *,
-.sdk-playground .site-mobile-sidebar > * {
-  background-color: transparent;
+.sdk-playground .site-mobile-nav .site-mobile-footer {
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background: inherit;
 }
 
-/* Dark theme */
 html[data-theme="dark"] .sdk-playground .site-mobile-nav,
-html[data-theme="dark"] .sdk-playground .site-mobile-sidebar,
-html[data-theme="dark"] .sdk-playground .sdk-playground-mobile-header {
-  background: var(--shivanya-color-background) !important;
-}
-
-/* Shared mobile header dimensions */
-@media (max-width: 640px) {
-  .sdk-playground .sdk-playground-mobile-header {
-    height: 66px;
-    min-height: 66px;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  .sdk-playground .sdk-playground-mobile-header .shivanya-shell-header-inner {
-    display: flex;
-    width: calc(100% - 28px);
-    min-height: 66px;
-    align-items: center;
-    margin-inline: auto;
-    gap: 0;
-  }
-
-  .sdk-playground .sdk-playground-mobile-header .shivanya-shell-header-start {
-    display: flex;
-    min-width: 0;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .sdk-playground .sdk-playground-mobile-header .shivanya-shell-mobile-menu {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .sdk-playground .sdk-playground-mobile-header .shivanya-shell-brand {
-    gap: 7px;
-  }
-
-  .sdk-playground .sdk-playground-mobile-header .shivanya-shell-brand-image {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-  }
-
-  .sdk-playground .sdk-playground-mobile-header .shivanya-shell-brand-text strong {
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    white-space: nowrap;
-  }
-}
-
-@media (max-width: 420px) {
-  .sdk-playground .sdk-playground-mobile-header .shivanya-shell-header-inner {
-    width: calc(100% - 20px);
-  }
-
-  .sdk-playground .sdk-playground-mobile-header .shivanya-shell-header-start {
-    gap: 10px;
-  }
+html[data-theme="dark"] .sdk-playground .site-mobile-sidebar {
+  background: var(--shivanya-color-background, #0b1120) !important;
 }
