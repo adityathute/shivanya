@@ -441,13 +441,6 @@
 }
 
 @media (max-width: 640px) {
-  .sdk-playground-mobile-header {
-    display: block;
-    border-bottom: 1px solid var(--shivanya-color-border-dark);
-    background: var(--shivanya-color-background) !important;
-    color: var(--sdk-text);
-  }
-
   .sdk-playground-layout {
     display: block;
     min-height: auto;
@@ -458,6 +451,8 @@
   }
 
   .sdk-playground-main {
+    grid-column: auto;
+    min-height: auto;
     padding: 26px 16px 40px;
   }
 
@@ -504,41 +499,6 @@ html[data-theme="dark"] .sdk-playground {
   html:not([data-theme="light"]):not([data-theme="dark"]) .sdk-playground {
     --sdk-accent-soft: rgb(98 87 232 / 16%);
     --sdk-shadow: 0 12px 30px rgb(0 0 0 / 24%);
-  }
-}
-
-@media (max-width: 900px) and (min-width: 641px) {
-  .sdk-playground-layout {
-    grid-template-columns: 210px minmax(0, 1fr);
-  }
-
-  .sdk-playground-desktop-sidebar {
-    width: 210px;
-  }
-
-  .sdk-playground-main {
-    padding: 24px;
-  }
-}
-
-@media (max-width: 640px) {
-  .sdk-playground-layout {
-    display: block;
-    min-height: auto;
-  }
-
-  .sdk-playground-desktop-sidebar {
-    display: none;
-  }
-
-  .sdk-playground-mobile-header {
-    display: block;
-  }
-
-  .sdk-playground-main {
-    grid-column: auto;
-    min-height: auto;
-    padding: 26px 16px 40px;
   }
 }
 
