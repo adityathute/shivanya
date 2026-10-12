@@ -243,7 +243,7 @@
 /* Mobile and smaller tablets */
 @media (max-width: 760px) {
   .site-header {
-    height: 66px;
+    display: none;
   }
 
   .site-header-inner {
@@ -795,11 +795,6 @@
 
 .site-mobile-sidebar .shivanya-shell-nav-item {
   border-radius: 8px;
-}
-
-.site-mobile-nav .site-mobile-footer {
-  flex-shrink: 0;
-  background: inherit;
 }
 
 .site-mobile-nav .site-mobile-footer {
