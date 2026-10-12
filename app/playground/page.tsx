@@ -1,49 +1,8 @@
-
 import Link from "next/link";
-import {
-  GridIcon,
-  ShieldCheckIcon,
-  LayoutIcon,
-  CodeIcon,
-} from "shivanya-ui";
+import { CodeIcon } from "shivanya-ui";
+import { playgroundPackages } from "../../components/playground/packageData";
 
-const packages = [
-  {
-    title: "shivanya-ui",
-    category: "UI components",
-    description: "Reusable interface components and shared design tokens.",
-    href: "/playground/ui",
-    icon: <GridIcon />,
-  },
-  {
-    title: "shivanya-auth",
-    category: "Authentication",
-    description: "Authentication and account UI for Shivanya applications.",
-    href: "/playground/auth",
-    icon: <ShieldCheckIcon />,
-  },
-  {
-    title: "shivanya-shell",
-    category: "Application shell",
-    description: "Reusable layouts and application structure.",
-    href: "/playground/shell",
-    icon: <LayoutIcon />,
-  },
-  {
-    title: "shivanya-core",
-    category: "Core SDK",
-    description: "Core client functionality for the Shivanya platform.",
-    href: "/playground/core",
-    icon: <CodeIcon />,
-  },
-  {
-    title: "shivanya-ai",
-    category: "AI tools",
-    description: "AI client capabilities for applications built on Shivanya.",
-    href: "/playground/ai",
-    icon: <CodeIcon />,
-  },
-];
+const packages = Object.values(playgroundPackages);
 
 export default function PlaygroundOverviewPage() {
   return (
@@ -84,7 +43,7 @@ export default function PlaygroundOverviewPage() {
             <h2>Packages</h2>
             <p>Choose a package to explore.</p>
           </div>
-          <span className="sdk-package-count">05 packages</span>
+          <span className="sdk-package-count">{packages.length} packages</span>
         </div>
 
         <div className="sdk-package-grid">
@@ -94,7 +53,7 @@ export default function PlaygroundOverviewPage() {
               href={item.href}
               key={item.href}
             >
-              <div className="sdk-package-icon">{item.icon}</div>
+              <div className="sdk-package-icon" aria-hidden="true">{item.icon}</div>
               <span className="sdk-package-label">{item.category}</span>
               <h3>{item.title}</h3>
               <p>{item.description}</p>
