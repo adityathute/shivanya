@@ -49,16 +49,6 @@
   border-bottom: 1px solid var(--sdk-border-soft);
 }
 
-.site-mobile-copyright {
-  display: flex;
-  justify-content: center;
-  color: var(--site-mobile-footer-text, #777787);
-  text-align: center;
-  font-size: 12px;
-  line-height: 1.5;
-  border-color: var(--shivanya-color-background);
-}
-
 .sdk-online-dot {
   width: 7px;
   height: 7px;
