@@ -26,13 +26,7 @@ const packages = [
     name: "shivanya-shell",
     tag: "Application UI",
     description: "Build a consistent application structure and experience.",
-  },
-  {
-    number: "05",
-    name: "shivanya-ai",
-    tag: "AI tools",
-    description: "AI capabilities designed to fit into your applications.",
-  },
+  }
 ];
 
 function CodePreview() {
@@ -151,8 +145,6 @@ export default function Home() {
             <span>REUSABLE PACKAGES</span>
             <i />
             <span>DEVELOPER FIRST</span>
-            <i />
-            <span>BUILT TO GROW</span>
           </div>
         </section>
 

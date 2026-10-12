@@ -13,39 +13,126 @@ import {
 } from "shivanya-auth";
 import { ShellProvider, ShellMobileNav, useShell } from "shivanya-shell";
 import { IconButton } from "shivanya-ui";
-import { MenuIcon } from "shivanya-ui/icons";
+import {
+  HomeIcon,
+  MenuIcon,
+  LoginIcon,
+  UserPlusIcon,
+  FoundationIcon,
+  DialogIcon,
+  PlayIcon,
+} from "shivanya-ui/icons";
 import NpmDownloads from "./NpmDownloads";
+import { usePathname } from "next/navigation";
 import "./SiteHeader.css";
 
+function NavIcon({
+  type,
+}: {
+  type: "package" | "book" | "play" | "login" | "register";
+}) {
+  return <HomeIcon size={19} aria-hidden="true" />;
+}
+
 const navigation = [
-  { label: "SDK", href: "#packages" },
-  { label: "Documentation", href: "#quick-start" },
-  { label: "Playground", href: "/playground" },
+  { label: "Home", href: "/", icon: <NavIcon type="package" /> },
+  { label: "SDK", href: "#packages", icon: <FoundationIcon type="package" /> },
+  {
+    label: "Documentation",
+    href: "#quick-start",
+    icon: <DialogIcon type="book" />,
+  },
+  { label: "Playground", href: "/playground", icon: <PlayIcon type="play" /> },
 ];
 
 const branding = {
   name: "Shivanya",
-  // subtitle: "SDK",
   src: "/logo.png",
   href: "/",
 };
 
 function SiteHeaderContent() {
-  const { loading } = useAuth();
+  const { loading, isAuthenticated } = useAuth();
   const { toggleMobile, closeMobile } = useShell();
+  const pathname = usePathname();
 
   const [authOpen, setAuthOpen] = useState(false);
   const [accountView, setAccountView] = useState<AccountView>("overview");
+  const [authInitialView, setAuthInitialView] = useState<"login" | "register">(
+    "login",
+  );
 
   const handleNavigate = (view: UserDropdownView) => {
     setAccountView(view);
+    setAuthInitialView("login");
     setAuthOpen(true);
   };
 
   const handleLogin = () => {
+    setAuthInitialView("login");
     setAccountView("overview");
     setAuthOpen(true);
   };
+
+  const handleRegister = () => {
+    setAuthInitialView("register");
+    setAccountView("overview");
+    setAuthOpen(true);
+  };
+
+  const handleAuthClose = () => {
+    setAuthOpen(false);
+    closeMobile();
+  };
+
+  const mobileSidebarActions = (
+    <>
+      {!loading && !isAuthenticated && (
+        <div className="site-mobile-auth-section">
+          <div className="site-mobile-divider" />
+
+          <div className="site-mobile-auth-actions">
+            <button
+              type="button"
+              className="site-mobile-login"
+              onClick={handleLogin}
+            >
+              <LoginIcon type="login" />
+              <span>Login</span>
+            </button>
+
+            <button
+              type="button"
+              className="site-mobile-register"
+              onClick={handleRegister}
+            >
+              <UserPlusIcon type="register" />
+              <span>Register</span>
+            </button>
+          </div>
+        </div>
+      )}
+    </>
+  );
+
+  const handleHomeClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    closeMobile();
+
+    if (pathname === "/") {
+      event.preventDefault();
+      window.history.replaceState(null, "", "/");
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const mobileFooter = (
+    <footer className="site-mobile-copyright site-mobile-footer">
+      <span>© {new Date().getFullYear()} Shivanya</span>
+    </footer>
+  );
 
   return (
     <>
@@ -67,18 +154,21 @@ function SiteHeaderContent() {
             className="brand"
             href="/"
             aria-label="Shivanya home"
-            onClick={closeMobile}
+            onClick={handleHomeClick}
           >
-            <Image src="/logo.png" alt="" width={24} height={24} priority />
+            <Image src="/logo.png" alt="" width={20} height={20} priority />
             <span className="brand-name">Shivanya</span>
           </Link>
 
           <nav className="site-nav" aria-label="Main navigation">
-            {navigation.map((item) => (
-              <Link key={item.label} href={item.href}>
-                {item.label}
-              </Link>
-            ))}
+            {navigation
+              .filter((item) => item.label !== "Home")
+              .map((item) => (
+                <Link key={item.label} href={item.href}>
+                  {item.icon}
+                  <span>{item.label}</span>
+                </Link>
+              ))}
           </nav>
 
           <div className="header-cta-group">
@@ -108,7 +198,7 @@ function SiteHeaderContent() {
               <UserDropdown
                 onNavigate={handleNavigate}
                 onLogin={handleLogin}
-                onRegister={handleLogin}
+                onRegister={handleRegister}
               />
             )}
           </div>
@@ -117,19 +207,28 @@ function SiteHeaderContent() {
 
       <ShellMobileNav
         navigation={navigation}
-        pathname="/"
+        pathname={pathname}
+        linkComponent={Link}
         branding={branding}
         open={undefined}
         onClose={closeMobile}
         size={280}
-      />
+        panelClassName="site-mobile-nav"
+        sidebarClassName="site-mobile-sidebar"
+        footer={mobileFooter}
+      >
+        {mobileSidebarActions}
+      </ShellMobileNav>
 
       <AuthModal
         open={authOpen}
-        onClose={() => setAuthOpen(false)}
-        initialView="login"
+        onClose={handleAuthClose}
+        initialView={authInitialView}
         accountView={accountView}
-        onAuthenticated={() => setAuthOpen(false)}
+        onAuthenticated={() => {
+          setAuthOpen(false);
+          closeMobile();
+        }}
       />
     </>
   );

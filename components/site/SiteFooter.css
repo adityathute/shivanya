@@ -1,6 +1,6 @@
 .site-footer {
   width: 100%;
-  border-top: 1px solid var(--shivanya-color-border-dark, #e5e7ef);
+  border-top: 1px solid var(--shivanya-color-border-dark, #e9eaf1);
   background: #ffffff;
   color: #171725;
   transition:
@@ -87,5 +87,43 @@ html[data-theme="dark"] .footer-copyright {
   .footer-copyright {
     margin-left: auto;
     font-size: 9px;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: calc(100% - 32px);
+    min-height: auto;
+    margin: 0 auto;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .footer-brand {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-description {
+    flex-basis: auto;
+    order: 0;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .footer-copyright {
+    order: 1;
+    width: 100%;
+    margin: 0;
+    font-size: 10px;
+    text-align: center;
+    white-space: normal;
   }
 }
