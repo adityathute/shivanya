@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import {
   AppShell,
-  ShellHeader,
   ShellSidebar,
   ShellMobileNav,
 } from "shivanya-shell";
@@ -16,6 +15,8 @@ import {
   LayoutIcon,
   CodeIcon,
 } from "shivanya-ui";
+import SiteMobileHeader from "../../components/site/SiteMobileHeader";
+import SiteMobileFooter from "../../components/site/SiteMobileFooter";
 import "./playground.css";
 
 const navigation = [
@@ -62,12 +63,7 @@ export default function PlaygroundLayout({
 
   return (
     <AppShell className="sdk-playground">
-      <ShellHeader
-        branding={branding}
-        position="sticky"
-        height={66}
-        className="sdk-playground-mobile-header"
-      />
+      <SiteMobileHeader />
 
       <ShellMobileNav
         navigation={navigation}
@@ -77,11 +73,7 @@ export default function PlaygroundLayout({
         panelClassName="site-mobile-nav"
         sidebarClassName="site-mobile-sidebar"
         size={248}
-        footer={
-          <footer className="site-mobile-copyright site-mobile-footer">
-            <span>© {new Date().getFullYear()} Shivanya</span>
-          </footer>
-        }
+        footer={<SiteMobileFooter />}
       />
 
       <div className="sdk-playground-layout">
@@ -93,11 +85,7 @@ export default function PlaygroundLayout({
           width={248}
           variant="static"
           className="sdk-playground-desktop-sidebar"
-          footer={
-            <footer className="site-mobile-copyright">
-              <span>© {new Date().getFullYear()} Shivanya</span>
-            </footer>
-          }
+          footer={<SiteMobileFooter />}
         />
 
         <main className="sdk-playground-main">{children}</main>
