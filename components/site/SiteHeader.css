@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  height: 56px;
+  height: 57px;
   border-bottom: 1px solid var(--shivanya-color-border-dark, #e9eaf1);
   background: var(--site-header-bg, rgba(255, 255, 255, 0.94));
   color: var(--site-header-text, #171725);
@@ -392,7 +392,7 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  height: 56px;
+  height: 57px;
   border-bottom: 1px solid var(--site-header-border, #e9eaf1);
   background: var(--site-header-bg, rgba(255, 255, 255, 0.94));
   color: var(--site-header-text, #171725);
@@ -781,7 +781,7 @@
   min-height: 66px;
   box-sizing: border-box;
   border-bottom: 1px solid var(--site-header-border, #e9eaf1);
-  background: inherit;
+  background: var(--shivanya-color-background) !important;
 }
 
 .site-mobile-sidebar {

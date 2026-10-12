@@ -1254,3 +1254,6 @@ html[data-theme="dark"] .code-window {
   }
 }
 
+[data-next-badge]{
+  display: none !important;
+}
