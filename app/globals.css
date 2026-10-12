@@ -1059,6 +1059,10 @@ html[data-theme="dark"] .package-link {
   color: var(--primary);
 }
 
+html[data-theme="dark"] .playground-preview {
+  box-shadow: none;
+}
+
 /* Install card */
 html[data-theme="dark"] .install-card {
   border-color: var(--border);
@@ -1105,7 +1109,7 @@ html[data-theme="dark"] .chip-icon-purple {
 
 /* Footer */
 html[data-theme="dark"] .site-footer {
-  border-color: var(--border);
+  border-color: var(--shivanya-color-border-dark);
   background: var(--page-bg);
   color: var(--text);
 }

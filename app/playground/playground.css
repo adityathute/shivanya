@@ -33,7 +33,7 @@
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
-  border-right: 1px solid var(--sdk-border);
+  border-right: 1px solid var(--border);
   background: var(--shivanya-color-background);
   z-index: 100;
 }
@@ -46,7 +46,8 @@
 }
 
 .sdk-playground-desktop-sidebar .shivanya-shell-sidebar-brand {
-  border-bottom: 1px solid var(--sdk-border-soft);
+  border-bottom: 1px solid var(--shivanya-color-border-dark);
+  padding: 16px 16px;
 }
 
 .sdk-online-dot {
@@ -507,4 +508,86 @@ html[data-theme="dark"] .sdk-playground {
 html[data-theme="dark"] .sdk-playground .site-mobile-nav,
 html[data-theme="dark"] .sdk-playground .site-mobile-sidebar {
   background: var(--shivanya-color-background, #0b1120) !important;
+}
+
+html[data-theme="dark"] .sdk-panel-symbol {
+  box-shadow: none;
+}
+
+.sdk-breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-width: 0;
+}
+
+.sdk-breadcrumb-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  min-width: 0;
+}
+
+.sdk-breadcrumb-user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+@media (max-width: 480px) {
+  .sdk-breadcrumb {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .sdk-breadcrumb-links {
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .sdk-breadcrumb-user {
+    flex-shrink: 0;
+  }
+}
+
+/* Desktop: show the breadcrumb user dropdown */
+.sdk-breadcrumb-user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Mobile: use the dropdown in the shared mobile header */
+@media (max-width: 760px) {
+  .sdk-breadcrumb-user {
+    display: none;
+  }
+}
+
+/* Playground sidebar branding logo */
+.sdk-playground-desktop-sidebar img[src="/logo.png"],
+.site-mobile-sidebar img[src="/logo.png"] {
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Hide mobile header on desktop */
+.site-mobile-header-wrapper {
+  display: none;
+}
+
+/* Show mobile header on mobile */
+@media (max-width: 760px) {
+  .site-mobile-header-wrapper {
+    display: block;
+  }
 }

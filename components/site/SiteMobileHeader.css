@@ -10,7 +10,7 @@
     box-sizing: border-box;
     background: var(--shivanya-color-background, #fff);
     color: var(--site-header-text, #171725);
-    border-bottom: 1px solid var(--site-header-border, #e9eaf1);
+    border-bottom: 1px solid var(--shivanya-color-border-dark, #e9eaf1);
   }
 
   .site-mobile-header .shivanya-shell-header-inner {
@@ -82,3 +82,24 @@ html[data-theme="dark"] .shivanya-shell-header.site-mobile-header,
   --site-header-border: #30394d;
   background: var(--shivanya-color-background, #0b1120);
 }
+
+.site-mobile-header-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.site-mobile-header-wrapper--with-actions .site-mobile-header {
+  padding-right: 76px;
+}
+
+.site-mobile-header-actions {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  z-index: 102;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transform: translateY(-50%);
+}
+

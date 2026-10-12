@@ -131,7 +131,17 @@ function SiteHeaderContent() {
 
   return (
     <>
-      <SiteMobileHeader />
+      <SiteMobileHeader
+        actions={
+          !loading ? (
+            <UserDropdown
+              onNavigate={handleNavigate}
+              onLogin={handleLogin}
+              onRegister={handleRegister}
+            />
+          ) : null
+        }
+      />
       <header className="site-header">
         <div className="site-header-inner">
           <div className="mobile-menu-trigger">

@@ -1,19 +1,64 @@
-import Link from "next/link";
-import type { PlaygroundPackage } from "./packageData";
+"use client";
 
-export default function PackageOverview({
-  item,
-}: {
-  item: PlaygroundPackage;
-}) {
+import Link from "next/link";
+import { useState } from "react";
+import {
+  UserDropdown,
+  AuthModal,
+  useAuth,
+  type UserDropdownView,
+  type AccountView,
+} from "shivanya-auth";
+import type { PlaygroundPackage } from "./packageData";
+import PlaygroundHomeLink from "./PlaygroundHomeLink";
+
+export default function PackageOverview({ item }: { item: PlaygroundPackage }) {
+  const { loading } = useAuth();
+
+  const [authModal, setAuthModal] = useState(false);
+  const [authInitialView, setAuthInitialView] = useState<"login" | "register">(
+    "login",
+  );
+  const [accountView, setAccountView] = useState<AccountView>("overview");
+
+  const handleNavigate = (view: UserDropdownView) => {
+    setAccountView(view);
+    setAuthInitialView("login");
+    setAuthModal(true);
+  };
+
+  const handleLogin = () => {
+    setAccountView("overview");
+    setAuthInitialView("login");
+    setAuthModal(true);
+  };
+
+  const handleRegister = () => {
+    setAccountView("overview");
+    setAuthInitialView("register");
+    setAuthModal(true);
+  };
+
   return (
     <div className="sdk-playground-page">
       <div className="sdk-breadcrumb">
-        <Link href="/">Shivanya</Link>
-        <span>/</span>
-        <Link href="/playground">Playground</Link>
-        <span>/</span>
-        <span>{item.route}</span>
+        <div className="sdk-breadcrumb-links">
+          <PlaygroundHomeLink />
+          <span>/</span>
+          <Link href="/playground">Playground</Link>
+          <span>/</span>
+          <span>{item.route}</span>
+        </div>
+
+        <div className="sdk-breadcrumb-user">
+          {!loading && (
+            <UserDropdown
+              onNavigate={handleNavigate}
+              onLogin={handleLogin}
+              onRegister={handleRegister}
+            />
+          )}
+        </div>
       </div>
 
       <div className="sdk-page-eyebrow">
@@ -56,6 +101,14 @@ export default function PackageOverview({
       <Link className="sdk-back-link" href="/playground">
         ← Back to overview
       </Link>
+
+      <AuthModal
+        open={authModal}
+        onClose={() => setAuthModal(false)}
+        initialView={authInitialView}
+        accountView={accountView}
+        onAuthenticated={() => setAuthModal(false)}
+      />
     </div>
   );
 }

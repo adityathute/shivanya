@@ -3,11 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import { AppShell, ShellSidebar, ShellMobileNav } from "shivanya-shell";
 import {
-  AppShell,
-  ShellSidebar,
-  ShellMobileNav,
-} from "shivanya-shell";
+  AuthModal,
+  UserDropdown,
+  useAuth,
+  type UserDropdownView,
+  type AccountView,
+} from "shivanya-auth";
+import { useState } from "react";
 import {
   HomeIcon,
   GridIcon,
@@ -25,7 +29,6 @@ const packageIcons = {
   auth: <ShieldCheckIcon />,
   shell: <LayoutIcon />,
   core: <CodeIcon />,
-  ai: <CodeIcon />,
 };
 
 const navigation = [
@@ -55,9 +58,53 @@ export default function PlaygroundLayout({
 }) {
   const pathname = usePathname();
 
+  const { loading } = useAuth();
+
+  const [authModal, setAuthModal] = useState(false);
+  const [authInitialView, setAuthInitialView] = useState<"login" | "register">(
+    "login",
+  );
+  const [accountView, setAccountView] = useState<AccountView>("overview");
+
+  const handleNavigate = (view: UserDropdownView) => {
+    setAccountView(view);
+    setAuthInitialView("login");
+    setAuthModal(true);
+  };
+
+  const handleLogin = () => {
+    setAccountView("overview");
+    setAuthInitialView("login");
+    setAuthModal(true);
+  };
+
+  const handleRegister = () => {
+    setAccountView("overview");
+    setAuthInitialView("register");
+    setAuthModal(true);
+  };
+
   return (
     <AppShell className="sdk-playground">
-      <SiteMobileHeader />
+      <SiteMobileHeader
+        actions={
+          !loading ? (
+            <UserDropdown
+              onNavigate={handleNavigate}
+              onLogin={handleLogin}
+              onRegister={handleRegister}
+            />
+          ) : null
+        }
+      />
+
+      <AuthModal
+        open={authModal}
+        onClose={() => setAuthModal(false)}
+        initialView={authInitialView}
+        accountView={accountView}
+        onAuthenticated={() => setAuthModal(false)}
+      />
 
       <ShellMobileNav
         navigation={navigation}

@@ -1,7 +1,12 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { ShellHeader } from "shivanya-shell";
 import "./SiteMobileHeader.css";
+
+type SiteMobileHeaderProps = {
+  actions?: ReactNode;
+};
 
 const branding = {
   name: "Shivanya",
@@ -9,13 +14,27 @@ const branding = {
   href: "/",
 };
 
-export default function SiteMobileHeader() {
+export default function SiteMobileHeader({
+  actions,
+}: SiteMobileHeaderProps) {
   return (
-    <ShellHeader
-      branding={branding}
-      position="sticky"
-      height={66}
-      className="site-mobile-header"
-    />
+    <div
+      className={`site-mobile-header-wrapper ${
+        actions ? "site-mobile-header-wrapper--with-actions" : ""
+      }`}
+    >
+      <ShellHeader
+        branding={branding}
+        position="sticky"
+        height={66}
+        className="site-mobile-header"
+      />
+
+      {actions && (
+        <div className="site-mobile-header-actions">
+          {actions}
+        </div>
+      )}
+    </div>
   );
 }

@@ -258,7 +258,7 @@
   flex-shrink: 0;
   min-height: 66px;
   box-sizing: border-box;
-  border-bottom: 1px solid var(--site-header-border, #e9eaf1);
+  border-bottom: 1px solid var(--shivanya-color-border-dark, #e9eaf1);
   background: var(--shivanya-color-background) !important;
 }
 
@@ -303,4 +303,16 @@
   width: 17px;
   height: 17px;
   flex-shrink: 0;
+}
+
+/* Hide mobile header on desktop */
+.site-mobile-header-wrapper {
+  display: none;
+}
+
+/* Show mobile header on mobile */
+@media (max-width: 760px) {
+  .site-mobile-header-wrapper {
+    display: block;
+  }
 }
