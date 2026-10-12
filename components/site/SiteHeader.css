@@ -424,23 +424,10 @@
   background: inherit;
 }
 
-.site-mobile-copyright {
-  color: var(--site-mobile-footer-text, #777787);
-  font-size: 12px;
-  line-height: 1.5;
-  text-align: center;
-}
-
-.site-mobile-copyright span {
-  margin: 0;
-}
-
-/* Dark theme */
-:root[data-theme="dark"] .site-mobile-nav,
+.site-mobile-nav,
 [data-theme="dark"] .site-mobile-nav,
 .dark .site-mobile-nav {
   --site-mobile-footer-border: #30394d;
-  --site-mobile-footer-text: #a1a1b2;
 }
 
 /* Remove the SDK's default footer border */
